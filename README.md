@@ -2,6 +2,7 @@
 
 This repository contains the backend implementation for a Fitness Center management system. It provides a set of RESTful CRUD APIs for managing various aspects of the fitness center, such as classes, exercises, instructors, members, registrations, rooms, schedule and more.
 
+
 ## Installation
 
 1. Clone the repository:

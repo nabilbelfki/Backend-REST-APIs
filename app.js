@@ -2,8 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const LoginRouter = require('./routes/login');
 const usersRouter = require('./routes/users');
-const skillsRouter = require('./routes/skills');
-const surgeriesRouter = require('./routes/surgeries');
 const classesRouter = require('./routes/classes');
 const classexercisesRouter = require('./routes/classexercises');
 const exercisesRouter = require('./routes/exercises');
@@ -18,12 +16,13 @@ const scheduleRouter = require('./routes/schedule');
 const app = express();
 
 // Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(express.json()); // Parse incoming JSON data
+app.use(express.urlencoded({ extended: true })); // Parse incoming URL-encoded data
+app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS)
 
 /// Logging middleware
 app.use((req, res, next) => {
+  // Log details of incoming requests
   console.log(`Received ${req.method} request for ${req.url}`);
   console.log('Request Headers:', req.headers);
   console.log('Request Body:', req.body);
@@ -31,21 +30,18 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/api/login', LoginRouter);
-app.use('/api/users', usersRouter);
-app.use('/api/skills', skillsRouter);
-app.use('/api/surgeries', surgeriesRouter);
-app.use('/api/classes', classesRouter);
-app.use('/api/classexercises', classexercisesRouter);
-app.use('/api/exercises', exercisesRouter);
-app.use('/api/instructors', instructorsRouter);
-app.use('/api/members', membersRouter);
-app.use('/api/memberships', membershipsRouter);
-app.use('/api/payroll', payrollRouter);
-app.use('/api/registration', registrationRouter);
-app.use('/api/rooms', roomsRouter);
-app.use('/api/schedule', scheduleRouter);
-
+app.use('/api/login', LoginRouter); // Authentication and login routes
+app.use('/api/users', usersRouter); // User management routes
+app.use('/api/classes', classesRouter); // Classes management routes
+app.use('/api/classexercises', classexercisesRouter); // Class exercises routes
+app.use('/api/exercises', exercisesRouter); // Exercises management routes
+app.use('/api/instructors', instructorsRouter); // Instructors management routes
+app.use('/api/members', membersRouter); // Members management routes
+app.use('/api/memberships', membershipsRouter); // Memberships management routes
+app.use('/api/payroll', payrollRouter); // Payroll management routes
+app.use('/api/registration', registrationRouter); // Registration routes
+app.use('/api/rooms', roomsRouter); // Rooms and facilities management routes
+app.use('/api/schedule', scheduleRouter); // Schedule management routes
 
 const port = 14291;
 app.listen(port, () => {

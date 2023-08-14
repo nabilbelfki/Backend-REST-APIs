@@ -1,12 +1,29 @@
+/**
+ * ClassExercise Management API Endpoints
+ * @module routes/classexercises
+ */
+
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
-// Create ClassExercise
+/**
+ * Create a new class exercise.
+ *
+ * This route allows the creation of a new class exercise record by providing exercise and class IDs.
+ *
+ * @name POST /api/classexercises/classexercises
+ * @function
+ * @memberof module:routes/classexercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.post('/classexercises', (req, res) => {
   const { ExerciseID, ClassID } = req.body;
-  console.log("Exercises" + ExerciseID)
-  console.log("ClassID" + ClassID)  
+  console.log("Exercises" + ExerciseID);
+  console.log("ClassID" + ClassID);
   // Execute the stored procedure query
   pool.query(
     'CALL CreateClassExercise(?, ?)',
@@ -24,7 +41,19 @@ router.post('/classexercises', (req, res) => {
   );
 });
 
-// Read ClassExercises
+/**
+ * Retrieve class exercise information.
+ *
+ * This route retrieves class exercise information based on provided exercise and class IDs.
+ *
+ * @name GET /api/classexercises/
+ * @function
+ * @memberof module:routes/classexercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object containing class exercise information.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.get('/', (req, res) => {
   const Exercises = req.query.Exercises || ''; // If Exercises is undefined, set it to an empty string
   const Classes = req.query.Classes || '';
@@ -45,9 +74,19 @@ router.get('/', (req, res) => {
   });
 });
 
-
-
-// Update ClassExercises
+/**
+ * Update class exercise information.
+ *
+ * This route allows updating class exercise information based on provided data.
+ *
+ * @name PUT /api/classexercises/classexercises/:oldExerciseID/:oldClassID
+ * @function
+ * @memberof module:routes/classexercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.put('/classexercises/:oldExerciseID/:oldClassID', (req, res) => {
   const oldExerciseID = req.params.oldExerciseID || '';
   const oldClassID = req.params.oldClassID || '';
@@ -74,7 +113,19 @@ router.put('/classexercises/:oldExerciseID/:oldClassID', (req, res) => {
   );
 });
 
-// Delete ClassExercise
+/**
+ * Delete a class exercise.
+ *
+ * This route allows deleting a class exercise based on the provided exercise and class IDs.
+ *
+ * @name DELETE /api/classexercises/classexercise/:exerciseID/:classID
+ * @function
+ * @memberof module:routes/classexercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.delete('/classexercise/:exerciseID/:classID', (req, res) => {
   const exerciseID = req.params.exerciseID || '';
   const classID = req.params.classID || '';
@@ -92,4 +143,5 @@ router.delete('/classexercise/:exerciseID/:classID', (req, res) => {
   });
 });
 
+// Export the router to be used in other parts of the application
 module.exports = router;

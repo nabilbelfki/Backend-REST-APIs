@@ -1,8 +1,25 @@
+/**
+ * Instructor Management API Endpoints
+ * @module routes/instructors
+ */
+
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
-// Create Instructor
+/**
+ * Create a new instructor.
+ *
+ * This route allows the creation of a new instructor record by providing necessary information.
+ *
+ * @name POST /api/instructors
+ * @function
+ * @memberof module:routes/instructors
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.post('/', (req, res) => {
   const { Type, FirstName, LastName, Salary, Hours, Rate } = req.body;
 
@@ -23,7 +40,19 @@ router.post('/', (req, res) => {
   );
 });
 
-// Read Instructors
+/**
+ * Retrieve instructor information.
+ *
+ * This route retrieves instructor information based on the provided parameters.
+ *
+ * @name GET /api/instructors/:Instructors?
+ * @function
+ * @memberof module:routes/instructors
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object containing instructor information.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.get('/:Instructors?', (req, res) => {
   const IDs = req.params.Instructors || '';
 
@@ -41,7 +70,19 @@ router.get('/:Instructors?', (req, res) => {
   });
 });
 
-// Update Instructor
+/**
+ * Update instructor information.
+ *
+ * This route allows updating instructor information based on the provided data.
+ *
+ * @name PUT /api/instructors/instructors/:id
+ * @function
+ * @memberof module:routes/instructors
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.put('/instructors/:id', (req, res) => {
   const instructorID = req.params.id || '';
   const { Type, FirstName, LastName } = req.body;
@@ -67,9 +108,22 @@ router.put('/instructors/:id', (req, res) => {
   );
 });
 
-// Delete Instructor
+/**
+ * Delete an instructor.
+ *
+ * This route allows deleting an instructor based on the provided ID.
+ *
+ * @name DELETE /api/instructors/:id
+ * @function
+ * @memberof module:routes/instructors
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.delete('/:id', (req, res) => {
   const pID = req.params.id || ''; // Access instructor ID from URL parameter
+
   // Execute the stored procedure query to delete the instructor
   pool.query('CALL DeleteInstructor(?)', [pID], (error, results) => {
     if (error) {
@@ -83,5 +137,5 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-
+// Export the router to be used in other parts of the application
 module.exports = router;

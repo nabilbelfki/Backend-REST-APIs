@@ -46,17 +46,11 @@ This repository contains the backend implementation for a Fitness Center managem
 
 ## API Documentation
 
-```
-
 For detailed information about each API endpoint, refer to the API documentation in the `routes` folder.
-```
 
 ## Contributing
 
-```
-
 Contributions are welcome! If you'd like to add new features, fix bugs, or improve the documentation, please create a pull request.
-```
 
 ## License
 
@@ -66,9 +60,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or support, please contact [nabilbelfki@gmail.com](mailto:nabilbelfki@gmail.com).
 
-```
-
 Make sure to replace `nabilbelfki` with your actual GitHub username, and update the `nabilbelfki@gmail.com` with your actual email address.
 
 This README.md file provides a basic structure and instructions for installing, using, and contributing to your fitness center backend project. You can further customize and enhance the README according to your project's needs and requirements.
-```

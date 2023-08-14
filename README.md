@@ -1,9 +1,13 @@
-````
 ## Backend REST APIs
 
+```
+
 This repository contains the backend implementation for a Fitness Center management system. It provides a set of RESTful CRUD APIs for managing various aspects of the fitness center, such as classes, exercises, instructors, members, registrations, rooms, schedule and more.
+```
 
 ## Installation
+
+````
 
 1. Clone the repository:
 
@@ -24,8 +28,11 @@ This repository contains the backend implementation for a Fitness Center managem
    ```
 
 4. Set up your database connection details in the `database.js` file.
+````
 
 ## Usage
+
+````
 
 1. Start the server:
 
@@ -44,16 +51,25 @@ This repository contains the backend implementation for a Fitness Center managem
    - `PUT /api/classes/:id`: Update a fitness class.
    - `DELETE /api/classes/:id`: Delete a fitness class.
    - ... (similar routes for exercises, instructors, members, registrations, rooms, schedule, etc.)
+````
 
 ## API Documentation
 
+```
+
 For detailed information about each API endpoint, refer to the API documentation in the `routes` folder.
+```
 
 ## Contributing
 
+```
+
 Contributions are welcome! If you'd like to add new features, fix bugs, or improve the documentation, please create a pull request.
+```
 
 ## License
+
+````
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 

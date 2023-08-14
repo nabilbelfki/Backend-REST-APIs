@@ -7,8 +7,6 @@ This repository contains the backend implementation for a Fitness Center managem
 
 ## Installation
 
-````
-
 1. Clone the repository:
 
    ```bash
@@ -28,11 +26,8 @@ This repository contains the backend implementation for a Fitness Center managem
    ```
 
 4. Set up your database connection details in the `database.js` file.
-````
 
 ## Usage
-
-````
 
 1. Start the server:
 
@@ -51,7 +46,6 @@ This repository contains the backend implementation for a Fitness Center managem
    - `PUT /api/classes/:id`: Update a fitness class.
    - `DELETE /api/classes/:id`: Delete a fitness class.
    - ... (similar routes for exercises, instructors, members, registrations, rooms, schedule, etc.)
-````
 
 ## API Documentation
 
@@ -69,8 +63,6 @@ Contributions are welcome! If you'd like to add new features, fix bugs, or impro
 
 ## License
 
-````
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
@@ -83,4 +75,3 @@ Make sure to replace `nabilbelfki` with your actual GitHub username, and update 
 
 This README.md file provides a basic structure and instructions for installing, using, and contributing to your fitness center backend project. You can further customize and enhance the README according to your project's needs and requirements.
 ```
-````

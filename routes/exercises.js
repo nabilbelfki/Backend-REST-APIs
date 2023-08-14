@@ -1,8 +1,25 @@
+/**
+ * Exercise Management API Endpoints
+ * @module routes/exercises
+ */
+
 const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 
-// Create Exercise
+/**
+ * Create a new exercise.
+ *
+ * This route allows the creation of a new exercise record by providing necessary information.
+ *
+ * @name POST /api/exercises/exercises
+ * @function
+ * @memberof module:routes/exercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.post('/exercises', (req, res) => {
   const { Name } = req.body;
 
@@ -23,7 +40,19 @@ router.post('/exercises', (req, res) => {
   );
 });
 
-// Read Exercises
+/**
+ * Retrieve exercise information.
+ *
+ * This route retrieves exercise information based on the provided parameters.
+ *
+ * @name GET /api/exercises/:Exercises?
+ * @function
+ * @memberof module:routes/exercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object containing exercise information.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.get('/:Exercises?', (req, res) => {
   const IDs = req.params.Exercises || '';
 
@@ -41,7 +70,19 @@ router.get('/:Exercises?', (req, res) => {
   });
 });
 
-// Update Exercise
+/**
+ * Update exercise information.
+ *
+ * This route allows updating exercise information based on the provided data.
+ *
+ * @name PUT /api/exercises/exercises/:id
+ * @function
+ * @memberof module:routes/exercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.put('/exercises/:id', (req, res) => {
   const exerciseID = req.params.id || '';
   const { Name } = req.body;
@@ -67,7 +108,19 @@ router.put('/exercises/:id', (req, res) => {
   );
 });
 
-// Delete Exercise
+/**
+ * Delete an exercise.
+ *
+ * This route allows deleting an exercise based on the provided ID.
+ *
+ * @name DELETE /api/exercises/exercise/:id
+ * @function
+ * @memberof module:routes/exercises
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Object} HTTP response object indicating the success of the operation.
+ * @throws {Object} HTTP response object with an error message in case of failure.
+ */
 router.delete('/exercise/:id', (req, res) => {
   const pID = req.params.id || ''; // Access exercise ID from URL parameter
 
@@ -84,4 +137,5 @@ router.delete('/exercise/:id', (req, res) => {
   });
 });
 
+// Export the router to be used in other parts of the application
 module.exports = router;

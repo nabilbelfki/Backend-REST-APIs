@@ -1,16 +1,15 @@
-````markdown
-# Backend REST APIs
+## Backend REST APIs
 
-This repository contains the backend implementation for a Fitness Center management system. It provides a set of RESTful CRUD APIs for managing various aspects of the fitness center, such as classes, exercises, instructors, members, registrations, rooms, schedule, skills, surgeries, and more.
+This repository contains the backend implementation for a Fitness Center management system. It provides a set of RESTful CRUD APIs for managing various aspects of the fitness center, such as classes, exercises, instructors, members, registrations, rooms, schedule and more.
+
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/nabilbelfki/Backend-REST-APIs.git
+   git clone https://github.com/your-username/Backend-REST-APIs.git
    ```
-````
 
 2. Navigate to the project directory:
 
@@ -44,7 +43,7 @@ This repository contains the backend implementation for a Fitness Center managem
    - `GET /api/classes`: Get list of fitness classes.
    - `PUT /api/classes/:id`: Update a fitness class.
    - `DELETE /api/classes/:id`: Delete a fitness class.
-   - ... (similar routes for exercises, instructors, members, registrations, rooms, schedule, skills, surgeries, etc.)
+   - ... (similar routes for exercises, instructors, members, registrations, rooms, schedule, etc.)
 
 ## API Documentation
 
@@ -62,9 +61,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or support, please contact [nabilbelfki@gmail.com](mailto:nabilbelfki@gmail.com).
 
-```
-
-Make sure to replace `"nabilbelfki"` with your actual GitHub username, and update the `"nabilbelfki@gmail.com"` with your actual email address.
+Make sure to replace `nabilbelfki` with your actual GitHub username, and update the `nabilbelfki@gmail.com` with your actual email address.
 
 This README.md file provides a basic structure and instructions for installing, using, and contributing to your fitness center backend project. You can further customize and enhance the README according to your project's needs and requirements.
-```

@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const LoginRouter = require('./routes/login');
-const usersRouter = require('./routes/users');
 const classesRouter = require('./routes/classes');
 const classexercisesRouter = require('./routes/classexercises');
 const exercisesRouter = require('./routes/exercises');
@@ -30,8 +28,6 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/api/login', LoginRouter); // Authentication and login routes
-app.use('/api/users', usersRouter); // User management routes
 app.use('/api/classes', classesRouter); // Classes management routes
 app.use('/api/classexercises', classexercisesRouter); // Class exercises routes
 app.use('/api/exercises', exercisesRouter); // Exercises management routes

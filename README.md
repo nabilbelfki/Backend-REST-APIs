@@ -1,5 +1,3 @@
-Certainly! Here's a README.md file for your backend with REST CRUD APIs:
-
 ````markdown
 # Backend REST APIs
 
